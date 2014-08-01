@@ -8,8 +8,7 @@ define(["jquery", "js!//maps.googleapis.com/maps/api/js?v=3.exp&callback=GoogleM
     var myLatlng = new google.maps.LatLng(38.8308,-77.3075);
     var mapOptions = {
       center: myLatlng,
-      zoom: 15,
-      disableDefaultUI: true
+      zoom: 15
     };
 
     map = new google.maps.Map(document.getElementById("map-canvas"),

@@ -5,8 +5,8 @@ define(["jquery", "js!//maps.googleapis.com/maps/api/js?v=3.exp&callback=GoogleM
   function initialize() {
     var mapOptions = {
       center: new google.maps.LatLng(38.8308,-77.3075),
-      zoom: 15,
-      disableDefaultUI: true
+      zoom: 15
+
     };
 
     homeMap = new google.maps.Map(document.getElementById("map-home-canvas"),
