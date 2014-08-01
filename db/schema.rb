@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20140801171845) do
     t.decimal  "longitude",   precision: 10, scale: 6
     t.string   "description"
     t.datetime "reported_at"
+    t.integer  "category_id"
+    t.integer  "trail_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
