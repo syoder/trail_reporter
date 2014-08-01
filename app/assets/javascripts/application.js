@@ -21,7 +21,12 @@ curl({
     {
       name: 'msgs',
       location: 'msgs',
-      main: 'msgs',
+      main: 'msgs'
+    },
+    {
+      name: 'curl',
+      location: 'curl/curl',
+      main: 'curl'
     }
   ]
 });
