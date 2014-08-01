@@ -17,10 +17,13 @@ function initialize() {
     myLatlng = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
     console.log(myLatlng);
     placeMarker(myLatlng);
+    document.getElementById('report_latitude').value = myLatlng.k;
+    document.getElementById('report_longitude').value = myLatlng.B;
   })
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
+//Places marker & moves if already placed
 function placeMarker(myLatlng) {
   if ( marker ) {
     marker.setPosition(myLatlng);
@@ -31,3 +34,4 @@ function placeMarker(myLatlng) {
     });
   }
 }
+
