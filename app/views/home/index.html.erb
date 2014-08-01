@@ -7,3 +7,22 @@
   <li><%= link_to "Trails", trails_path %></li>
 </ul>
 
+<p id="current-coordinates">
+  locating...
+</p>
+
+<% content_for :javascript do %>
+  <script>
+  curl(["current-location", "message-bus"], function (locator, bus) {
+    bus.on("current-coordinates", function (coords) {
+      var container = document.getElementById("current-coordinates");
+      container.innerHTML = "You're at " + coords.join(", ");
+    });
+    locator.startTracking();
+  })
+  </script>
+
+  <script>
+    curl("homeMap");
+  </script>
+<% end %>
