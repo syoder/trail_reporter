@@ -1,9 +1,9 @@
 def random_latitude
-  rand(-90.00..90.00)
+  rand(29.0000..50.0000)
 end
 
 def random_longitude
-  rand(-180.00..180.00)
+  rand(-90.0000..-70.0000)
 end
 
 def random_datetime
