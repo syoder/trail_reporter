@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :tags
+
+  resources :comments
+
+  resources :trails
+
+  resources :categories
+
   resources :reports
 
   # The priority is based upon order of creation: first created -> highest priority.
