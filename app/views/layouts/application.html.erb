@@ -31,9 +31,6 @@
       <%= yield %>
     </div>
 
-    <script type="text/javascript"
-      src="http://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>">
-    </script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= yield :javascript %>
   </body>

@@ -30,3 +30,7 @@ curl({
     }
   ]
 });
+
+window.GoogleMapsLoaded = function () {
+  $(document).trigger("google-maps:loaded");
+};
