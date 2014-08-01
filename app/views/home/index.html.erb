@@ -3,3 +3,17 @@
 <%= link_to "Sign In", new_user_session_path(current_user) %>
 
 <%= link_to "Sign Up", new_user_registration_path(current_user) %>
+
+<p id="current-coordinates">
+  locating...
+</p>
+
+<script>
+curl(["current-location", "message-bus"], function (locator, bus) {
+  bus.on("current-coordinates", function (coords) {
+    var container = document.getElementById("current-coordinates");
+    container.innerHTML = "You're at " + coords.join(", ");
+  });
+  locator.startTracking();
+})
+</script>
