@@ -1,4 +1,4 @@
-define(["jquery", "js!//maps.googleapis.com/maps/api/js?v=3.exp&callback=GoogleMapsLoaded&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>!order!exports=google"], function ($) {
+define(["jquery", "js!//maps.googleapis.com/maps/api/js?v=3.exp&callback=GoogleMapsLoaded&key="+GOOGLE_MAPS_API_KEY+"!order!exports=google"], function ($) {
   var map;
   var marker;
 
