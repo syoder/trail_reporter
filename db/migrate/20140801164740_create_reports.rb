@@ -8,7 +8,7 @@ class CreateReports < ActiveRecord::Migration
 
       t.references :category_id
       t.references :trail_id
-      t.referecnes :user_id
+      t.references :user_id
 
       t.timestamps
     end
