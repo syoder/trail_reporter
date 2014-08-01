@@ -1,8 +1,11 @@
 <h1>Trail Reporter</h1>
 
-<%= link_to "Sign In", new_user_session_path(current_user) %>
-
-<%= link_to "Sign Up", new_user_registration_path(current_user) %>
+<ul>
+  <li><%= link_to "Reports", reports_path %></li>
+  <li><%= link_to "Categories", categories_path %></li>
+  <li><%= link_to "Tags", tags_path %></li>
+  <li><%= link_to "Trails", trails_path %></li>
+</ul>
 
 <p id="current-coordinates">
   locating...

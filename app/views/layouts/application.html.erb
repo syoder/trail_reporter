@@ -3,8 +3,9 @@
   <head>
     <title>TrailReporter</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
     <%= csrf_meta_tags %>
+
   </head>
   <body>
     <%= nav_bar :fixed => :top do %>
@@ -24,10 +25,15 @@
         <% end %>
       <% end -%>
     <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+    <div class="container">
+      <%= render partial: "shared/flash_messages", flash: flash %>
+      <%= yield %>
+    </div>
 
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>">
+    </script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>

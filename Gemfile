@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem "devise"
 
+
 gem 'rails-assets-curl', '~> 0.8.10'
 gem 'rails-assets-msgs', '~> 0.4.0'
 
