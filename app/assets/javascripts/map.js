@@ -6,7 +6,6 @@ function initialize() {
   var mapOptions = {
     center: myLatlng,
     zoom: 15,
-    scrollwheel: false,
     disableDefaultUI: true
     };
 
