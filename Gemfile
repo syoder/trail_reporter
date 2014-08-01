@@ -25,7 +25,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem "devise"
 
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -47,3 +46,5 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
 end
+
+gem "twitter-bootstrap-rails"

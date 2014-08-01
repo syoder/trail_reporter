@@ -69,6 +69,6 @@ class TrailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trail_params
-      params[:trail]
+      params.require(:trail).permit(:name)
     end
 end
