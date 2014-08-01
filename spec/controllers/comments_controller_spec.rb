@@ -122,15 +122,37 @@ RSpec.describe CommentsController, :type => :controller do
 
   describe "PUT update" do
     describe "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+    let(:category) { Category.create name: "updated category" }
+    let(:trail) { Trail.create name: "updated trail" }
+    let(:user) { User.create }
+    let(:report) {
+      Report.create(
+          {
+              latitude: 38.8522443,
+              longitude: -77.301833,
+              description: "updated description",
+              reported_at: DateTime.now,
+              category_id: category.id,
+              trail_id: trail.id,
+              user_id: user.id
+          })
+    }
+    let(:new_attributes) {
+      {
+          report_id: report.id,
+          user_id: user.id,
+          subject: "updated subject",
+          body: "updated body"
       }
+    }
 
       it "updates the requested comment" do
         comment = Comment.create! valid_attributes
-        put :update, {:id => comment.to_param, :comment => new_attributes}, valid_session
-        comment.reload
-        skip("Add assertions for updated state")
+
+        expect {
+          put :update, {:id => comment.to_param, :comment => new_attributes}, valid_session
+          comment.reload
+        }.to change { comment.attributes }
       end
 
       it "assigns the requested comment as @comment" do

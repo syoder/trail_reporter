@@ -103,14 +103,15 @@ RSpec.describe TrailsController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: "updated name" }
       }
 
       it "updates the requested trail" do
         trail = Trail.create! valid_attributes
-        put :update, {:id => trail.to_param, :trail => new_attributes}, valid_session
-        trail.reload
-        skip("Add assertions for updated state")
+        expect {
+          put :update, {:id => trail.to_param, :trail => new_attributes}, valid_session
+          trail.reload
+        }.to change { trail.attributes }
       end
 
       it "assigns the requested trail as @trail" do

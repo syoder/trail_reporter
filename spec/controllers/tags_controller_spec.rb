@@ -103,14 +103,15 @@ RSpec.describe TagsController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: "updated name" }
       }
 
       it "updates the requested tag" do
         tag = Tag.create! valid_attributes
-        put :update, {:id => tag.to_param, :tag => new_attributes}, valid_session
-        tag.reload
-        skip("Add assertions for updated state")
+        expect {
+          put :update, {:id => tag.to_param, :tag => new_attributes}, valid_session
+          tag.reload
+        }.to change { tag.attributes }
       end
 
       it "assigns the requested tag as @tag" do

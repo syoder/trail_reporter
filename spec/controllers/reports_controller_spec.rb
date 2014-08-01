@@ -113,15 +113,27 @@ RSpec.describe ReportsController, :type => :controller do
 
   describe "PUT update" do
     describe "with valid params" do
+      let(:category) { Category.create name: "updated category" }
+      let(:trail) { Trail.create name: "updated trail" }
+      let(:user) { User.create }
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+            latitude: 38.8522443,
+            longitude: -77.301833,
+            description: "updated description",
+            reported_at: DateTime.now,
+            category_id: category.id,
+            trail_id: trail.id,
+            user_id: user.id
+        }
       }
 
       it "updates the requested report" do
         report = Report.create! valid_attributes
-        put :update, {:id => report.to_param, :report => new_attributes}, valid_session
-        report.reload
-        skip("Add assertions for updated state")
+        expect {
+          put :update, {:id => report.to_param, :report => new_attributes}, valid_session
+          report.reload
+        }.to change { report.attributes }
       end
 
       it "assigns the requested report as @report" do
