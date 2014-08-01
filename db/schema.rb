@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20140801171845) do
   end
 
   create_table "reports", force: true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
+    t.decimal  "latitude",    precision: 10, scale: 6
+    t.decimal  "longitude",   precision: 10, scale: 6
     t.string   "description"
     t.datetime "reported_at"
     t.integer  "category_id"
