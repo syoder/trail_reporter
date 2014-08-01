@@ -9,9 +9,8 @@ define(["jquery", "js!//maps.googleapis.com/maps/api/js?v=3.exp&callback=GoogleM
     var mapOptions = {
       center: myLatlng,
       zoom: 15,
-      scrollwheel: false,
       disableDefaultUI: true
-      };
+    };
 
     map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
