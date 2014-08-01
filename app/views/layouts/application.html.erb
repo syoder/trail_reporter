@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TrailReporter</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>TrailReporter</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-<%= yield %>
+    <% if current_user %>
+      <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path %>
+      <%= link_to "Sign Up", new_user_registration_path %>
+    <% end %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>
