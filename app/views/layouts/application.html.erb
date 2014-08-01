@@ -24,10 +24,11 @@
         <% end %>
       <% end -%>
     <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+    <div class="container">
+      <%= render partial: "shared/flash_messages", flash: flash %>
+      <%= yield %>
+    </div>
 
   </body>
 </html>
