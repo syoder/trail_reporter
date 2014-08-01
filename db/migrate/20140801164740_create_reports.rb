@@ -6,6 +6,10 @@ class CreateReports < ActiveRecord::Migration
       t.string :description
       t.timestamp :reported_at
 
+      t.references :category_id
+      t.references :trail_id
+      t.referecnes :user_id
+
       t.timestamps
     end
   end
