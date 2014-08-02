@@ -7,16 +7,13 @@
 
 <% content_for :javascript do %>
   <script>
-  curl(["current-location", "message-bus"], function (locator, bus) {
-    bus.on("current-coordinates", function (coords) {
+    $(document).on("updated-coordinates", function (event, coords) {
       var container = document.getElementById("current-coordinates");
+      window.lastCoordinates = coords;
+      console.log("new coordinates:", coords);
       container.innerHTML = "You're at " + coords.join(", ");
     });
-    locator.startTracking();
-  })
   </script>
 
-  <script>
-    curl("homeMap");
-  </script>
+  <%= javascript_include_tag "home-map" %>
 <% end %>

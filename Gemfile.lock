@@ -92,10 +92,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.1)
       sprockets-rails (~> 2.0)
-    rails-assets-curl (0.8.10)
-    rails-assets-msgs (0.4.0)
-      rails-assets-when (~> 3)
-    rails-assets-when (3.4.2)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -177,8 +173,6 @@ DEPENDENCIES
   pg
   pry-rails
   rails (= 4.1.1)
-  rails-assets-curl (~> 0.8.10)
-  rails-assets-msgs (~> 0.4.0)
   rails_12factor
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)

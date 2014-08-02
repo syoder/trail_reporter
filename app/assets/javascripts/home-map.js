@@ -1,9 +1,11 @@
-define(["jquery", "message-bus", "current-location", "js!//maps.googleapis.com/maps/api/js?v=3.exp&callback=GoogleMapsLoaded&key="+GOOGLE_MAPS_API_KEY+"!order!exports=google"], function ($, bus, currentLocation) {
+(function () {
+  "use strict";
+
   var homeMap;
   var homeMarker;
   var selfMarker;
 
-  currentLocation.startTracking();
+  CurrentLocation.startTracking();
 
   function initialize() {
     var mapOptions = {
@@ -14,12 +16,11 @@ define(["jquery", "message-bus", "current-location", "js!//maps.googleapis.com/m
     homeMap = new google.maps.Map(document.getElementById("map-home-canvas"),
         mapOptions);
 
-    bus.on("current-coordinates", function (coords) {
-      console.log("got coordinates from the bus!")
+    $(document).on("updated-coordinates", function (event, coords) {
       showSelf(coords);
     });
-    if (currentLocation.lastCoordinates) {
-      showSelf(currentLocation.lastCoordinates);
+    if (CurrentLocation.lastCoordinates) {
+      showSelf(CurrentLocation.lastCoordinates);
     }
 
     $.getJSON('/reports').then(function(reports){
@@ -28,18 +29,17 @@ define(["jquery", "message-bus", "current-location", "js!//maps.googleapis.com/m
       });
     });
   }
-
-  $(document).on("google-maps:loaded", initialize);
+  google.maps.event.addDomListener(window, 'load', initialize);
 
   function showMarker(report){
-    homeMarker = new google.maps.Marker({
+    var homeMarker = new google.maps.Marker({
         position: new google.maps.LatLng(report.latitude, report.longitude),
         map: homeMap
       });
   }
 
   function showSelf(coordinates) {
-    latLng = new google.maps.LatLng(coordinates[0], coordinates[1]);
+    var latLng = new google.maps.LatLng(coordinates[0], coordinates[1]);
     if (!selfMarker) {
       selfMarker = new google.maps.Marker({
         position: latLng,
@@ -53,4 +53,4 @@ define(["jquery", "message-bus", "current-location", "js!//maps.googleapis.com/m
 
     homeMap.panTo(latLng);
   }
-});
+}());
