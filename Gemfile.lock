@@ -172,9 +172,9 @@ DEPENDENCIES
   pg
   pry-rails
   rails (= 4.1.1)
-  rspec-rails (~> 3.0.0)
   rails-assets-curl (~> 0.8.10)
   rails-assets-msgs (~> 0.4.0)
+  rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
