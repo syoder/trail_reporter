@@ -1,17 +1,14 @@
-<%= form_for(@trail) do |f| %>
-  <% if @trail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@trail.errors.count, "error") %> prohibited this trail from being saved:</h2>
-
-      <ul>
-      <% @trail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @trail, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                trails_path, :class => 'btn' %>
   </div>
 <% end %>
