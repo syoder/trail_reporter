@@ -17,3 +17,9 @@
 
 # Ignore env file
 .env
+
+# Ignore rspec config
+.rspec
+
+# Ignore IDE config
+.idea
