@@ -1,4 +1,4 @@
-define(["jquery", "message-bus", "current-location", "domReady!", "js!//maps.googleapis.com/maps/api/js?v=3.exp&callback=GoogleMapsLoaded&key="+GOOGLE_MAPS_API_KEY+"!order!exports=google"], function ($, bus, currentLocation) {
+define(["jquery", "message-bus", "current-location", "js!//maps.googleapis.com/maps/api/js?v=3.exp&callback=GoogleMapsLoaded&key="+GOOGLE_MAPS_API_KEY+"!order!exports=google"], function ($, bus, currentLocation) {
   var homeMap;
   var homeMarker;
   var selfMarker;
