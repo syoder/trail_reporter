@@ -20,12 +20,9 @@ require 'rails_helper'
 
 RSpec.describe ReportsController, :type => :controller do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Report. As you add validations to Report, be sure to
-  # adjust the attributes here as well.
+  let(:user) { User.create email: "test@tests.com", password: "password_here" }
   let(:category) { Category.create name: "test category" }
   let(:trail) { Trail.create name: "test trail" }
-  let(:user) { User.create }
   let(:valid_attributes) {
     {
       latitude: 38.8522444,
@@ -65,57 +62,68 @@ RSpec.describe ReportsController, :type => :controller do
 
   describe "GET new" do
     it "assigns a new report as @report" do
-      get :new, {}, valid_session
+      sign_in user
+      get :new
       expect(assigns(:report)).to be_a_new(Report)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested report as @report" do
+      sign_in user
       report = Report.create! valid_attributes
-      get :edit, {:id => report.to_param}, valid_session
+      get :edit, {:id => report.to_param}
       expect(assigns(:report)).to eq(report)
     end
   end
 
   describe "POST create" do
+
+    before do
+      sign_in user
+    end
+
     describe "with valid params" do
       it "creates a new Report" do
         expect {
-          post :create, {:report => valid_attributes}, valid_session
+          post :create, {:report => valid_attributes}
         }.to change(Report, :count).by(1)
       end
 
       it "assigns a newly created report as @report" do
-        post :create, {:report => valid_attributes}, valid_session
+        post :create, {:report => valid_attributes}
         expect(assigns(:report)).to be_a(Report)
         expect(assigns(:report)).to be_persisted
       end
 
       it "redirects to the created report" do
-        post :create, {:report => valid_attributes}, valid_session
+        post :create, {:report => valid_attributes}
         expect(response).to redirect_to(Report.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved report as @report" do
-        post :create, {:report => invalid_attributes}, valid_session
+        post :create, {:report => invalid_attributes}
         expect(assigns(:report)).to be_a_new(Report)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:report => invalid_attributes}, valid_session
+        post :create, {:report => invalid_attributes}
         expect(response).to render_template("new")
       end
     end
   end
 
   describe "PUT update" do
+
+    before do
+      sign_in user
+    end
+
     describe "with valid params" do
       let(:category) { Category.create name: "updated category" }
       let(:trail) { Trail.create name: "updated trail" }
-      let(:user) { User.create }
       let(:new_attributes) {
         {
             latitude: 38.8522443,
@@ -138,7 +146,7 @@ RSpec.describe ReportsController, :type => :controller do
 
       it "assigns the requested report as @report" do
         report = Report.create! valid_attributes
-        put :update, {:id => report.to_param, :report => valid_attributes}, valid_session
+        put :update, {:id => report.to_param, :report => valid_attributes}
         expect(assigns(:report)).to eq(report)
       end
 
@@ -166,6 +174,7 @@ RSpec.describe ReportsController, :type => :controller do
 
   describe "DELETE destroy" do
     it "destroys the requested report" do
+      sign_in user
       report = Report.create! valid_attributes
       expect {
         delete :destroy, {:id => report.to_param}, valid_session
@@ -173,6 +182,7 @@ RSpec.describe ReportsController, :type => :controller do
     end
 
     it "redirects to the reports list" do
+      sign_in user
       report = Report.create! valid_attributes
       delete :destroy, {:id => report.to_param}, valid_session
       expect(response).to redirect_to(reports_url)

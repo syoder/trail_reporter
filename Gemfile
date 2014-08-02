@@ -46,11 +46,11 @@ gem 'rails-assets-msgs', '~> 0.4.0'
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "pry-rails"
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
+  gem "pry-rails"
 end
 
 gem "twitter-bootstrap-rails"
