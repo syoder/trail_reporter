@@ -11,8 +11,11 @@ define(["message-bus"], function (bus) {
     output: "current-coordinates",
   });
 
+  bus.on("current-coordinates", function (coords) {
+    exports.lastCoordinates = coords;
+  });
+
   var success = function (pos) {
-    window.LastPosition = pos;
     console.log("your current coordinates:", pos.coords.latitude, pos.coords.longitude)
     bus.send("browser-geolocation", pos);
   }
@@ -34,7 +37,7 @@ define(["message-bus"], function (bus) {
   exports.stopTracking = function () {
     navigator.geolocation.clearWatch(watchID);
     watchID = null;
-  }
+  };
 
   return exports;
 })
