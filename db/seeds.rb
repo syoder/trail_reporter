@@ -7,6 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 
+['admin'].each do |role_name|
+  Role.where(name: role_name).first_or_create
+end
+
 trail_names = ["Appalachian Trail", "Tuscarora Trail", "Pacific Crest Trail", "C & O Canal Towpath", "Great Allegheny Passage"]
 trail_names.each do |trail_name|
   Trail.where(name: trail_name).first_or_create
