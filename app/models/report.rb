@@ -5,6 +5,18 @@ class Report < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+
+  validates :latitude,
+    presence:     true,
+    numericality: true
+
+  validates :longitude,
+    presence:     true,
+    numericality: true
+
+  # QUESTION: I assume that descriptions are required for all reports.
+  validates :description, presence: true
+
   def tags_text
     tags.pluck(:name).join(",")
   end

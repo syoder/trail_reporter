@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "trails/new", :type => :view do
   before(:each) do
-    assign(:trail, Trail.new())
+    assign(:trail, Trail.new(name: "Somewhere"))
   end
 
   it "renders new trail form" do

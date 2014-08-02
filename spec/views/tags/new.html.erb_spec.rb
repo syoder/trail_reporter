@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "tags/new", :type => :view do
   before(:each) do
-    assign(:tag, Tag.new())
+    assign(:tag, Tag.new(name: "Something"))
   end
 
   it "renders new tag form" do
