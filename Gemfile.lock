@@ -96,6 +96,11 @@ GEM
     rails-assets-msgs (0.4.0)
       rails-assets-when (~> 3)
     rails-assets-when (3.4.2)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.1.1)
       actionpack (= 4.1.1)
       activesupport (= 4.1.1)
@@ -174,6 +179,7 @@ DEPENDENCIES
   rails (= 4.1.1)
   rails-assets-curl (~> 0.8.10)
   rails-assets-msgs (~> 0.4.0)
+  rails_12factor
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

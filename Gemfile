@@ -22,9 +22,10 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
 gem "devise"
+
+# we need this in order to serve assets properly on heroku
+gem 'rails_12factor', group: :production
 
 # JS library for loading modules on the frontend.
 gem 'rails-assets-curl', '~> 0.8.10'
@@ -44,6 +45,7 @@ gem 'rails-assets-msgs', '~> 0.4.0'
 # gem 'debugger', group: [:development, :test]
 
 group :development do
+  gem "spring"
   gem "better_errors"
   gem "binding_of_caller"
 end
