@@ -10,6 +10,10 @@ Things you may want to cover:
 * Ruby version: 2.1.1
 
 * System dependencies
+    * **Imagemagick** for resizing image uploads 
+        * Mac OS X
+            * Using brew
+                * ``brew install imagemagick``
 
 * Configuration
 

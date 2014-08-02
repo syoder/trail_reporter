@@ -56,3 +56,6 @@ group :development, :test do
 end
 
 gem "twitter-bootstrap-rails"
+
+# Used for attaching pictures to reports
+gem 'carrierwave'
