@@ -1,23 +1,13 @@
-define(["message-bus"], function (bus) {
+window.CurrentLocation = (function () {
   "use strict";
   var watchID;
   var exports = {};
 
-  bus.channel("browser-geolocation");
-  bus.transformer(function (message) {
-    return [message.coords.latitude, message.coords.longitude];
-  }, {
-    input: "browser-geolocation",
-    output: "current-coordinates",
-  });
-
-  bus.on("current-coordinates", function (coords) {
-    exports.lastCoordinates = coords;
-  });
-
   var success = function (pos) {
-    console.log("your current coordinates:", pos.coords.latitude, pos.coords.longitude)
-    bus.send("browser-geolocation", pos);
+    var newCoordinates = [pos.coords.latitude, pos.coords.longitude];
+    console.log("your current coordinates:", newCoordinates);
+    $(document).trigger("updated-coordinates", [newCoordinates]);
+    exports.lastLocation = newCoordinates;
   }
   var failure = function (err) {
     console.log("error getting current location:", err)
@@ -40,4 +30,4 @@ define(["message-bus"], function (bus) {
   };
 
   return exports;
-})
+}());

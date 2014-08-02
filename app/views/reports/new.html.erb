@@ -5,7 +5,5 @@
 <%= link_to 'Back', reports_path %>
 
 <% content_for :javascript do %>
-<script>
-curl("map");
-</script>
+  <%= javascript_include_tag "map" %>
 <% end %>
