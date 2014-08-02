@@ -2,6 +2,6 @@ class Trail < ActiveRecord::Base
   has_many :reports
 
   validates :name,
-    presence: true,
-    unique:   true
+    presence:   true,
+    uniqueness: true
 end
