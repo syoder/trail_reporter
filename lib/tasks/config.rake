@@ -25,3 +25,7 @@ namespace :config do
   end
   
 end
+
+# Travis-CI needs the database config to exist so that it can run unit tests.
+# So, we add :"config:prepare" as an extra dependency to ensure this.
+task :spec => :"config:prepare"
