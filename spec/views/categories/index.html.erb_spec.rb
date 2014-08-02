@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "categories/index", :type => :view do
   before(:each) do
     assign(:categories, [
-      Category.create!(),
-      Category.create!()
+      Category.create!(name: "Something"),
+      Category.create!(name: "Something Else")
     ])
   end
 
