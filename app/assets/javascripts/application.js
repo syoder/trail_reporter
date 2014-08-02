@@ -10,28 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require curl
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require bootstrap-tagsinput
-
-curl({
-  baseUrl: "/assets",
-  packages: [
-    {
-      name: 'msgs',
-      location: 'msgs',
-      main: 'msgs'
-    },
-    {
-      name: 'curl',
-      location: 'curl/curl',
-      main: 'curl'
-    }
-  ]
-});
-
-window.GoogleMapsLoaded = function () {
-  $(document).trigger("google-maps:loaded");
-};
+//= require current-location
