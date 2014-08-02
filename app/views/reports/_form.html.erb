@@ -11,31 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :latitude %><br>
+  <div class="control-group">
+    <%= f.label :latitude %>
     <%= f.text_field :latitude %>
   </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
+  <div class="control-group">
+    <%= f.label :longitude %>
     <%= f.text_field :longitude %>
   </div>
-  <div>
-    <%= f.label :trail %><br>
+  <div class="control-group">
+    <%= f.label :trail %>
     <%= f.select :trail, options_for_select([["Select One"], "Appalachian", "Bear", "Sunrise", "Little Neck", "Other"]) %>
   </div>
-  <div>
-    <%= f.label :category %><br>
+  <div class="control-group">
+    <%= f.label :category %>
     <%= f.select :category, options_for_select([["Select One"], "Wildlife", "Maintenance", "Path Obstruction", "Washout", "Other"]) %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
+  <div class="control-group">
+    <%= f.label :tags_text, "Tags" %>
+    <%= f.text_field :tags_text, "placeholder" => "Add tags", "data-role" => "tagsinput" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :reported_at %><br>
+  <div class="control-group">
+    <%= f.label :reported_at %>
     <%= f.datetime_select :reported_at %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="control-group">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
