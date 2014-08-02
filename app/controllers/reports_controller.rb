@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
   before_action :set_report, only: [:show, :edit, :update, :destroy]
 
   # GET /reports
@@ -14,7 +15,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/new
   def new
-    @report = Report.new
+    @report = current_user.reports.new
   end
 
   # GET /reports/1/edit
@@ -24,7 +25,7 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(report_params)
+    @report = current_user.reports.new(report_params)
 
     respond_to do |format|
       if @report.save
