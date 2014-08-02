@@ -21,7 +21,7 @@
   </div>
   <div class="control-group">
     <%= f.label :trail %>
-    <%= f.select :trail, options_for_select([["Select One"], "Appalachian", "Bear", "Sunrise", "Little Neck", "Other"]) %>
+    <%= f.collection_select :trail, Trail.all, :id, :name, include_blank: "<none>" %>
   </div>
   <div class="control-group">
     <%= f.label :category %>

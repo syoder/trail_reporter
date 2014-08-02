@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+
+trail_names = ["Appalachian Trail", "Tuscarora Trail", "Pacific Crest Trail", "C & O Canal Towpath", "Great Allegheny Passage"]
+trail_names.each do |trail_name|
+  Trail.where(name: trail_name).first_or_create
+end
