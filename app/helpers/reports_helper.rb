@@ -1,2 +1,2 @@
-module ReportsHelper
+module ReportsHelper  
 end

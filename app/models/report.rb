@@ -7,6 +7,16 @@ class Report < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+
+  validates :latitude,
+    presence:     true,
+    numericality: true
+
+  validates :longitude,
+    presence:     true,
+    numericality: true
+
+
   def tags_text
     tags.pluck(:name).join(",")
   end
