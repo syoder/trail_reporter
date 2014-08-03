@@ -14,8 +14,7 @@ class Report < ActiveRecord::Base
     presence:     true,
     numericality: true
 
-  # QUESTION: I assume that descriptions are required for all reports.
-  validates :description, presence: true
+
 
   def tags_text
     tags.pluck(:name).join(",")
