@@ -27,11 +27,6 @@ gem "devise"
 # we need this in order to serve assets properly on heroku
 gem 'rails_12factor', group: :production
 
-# JS library for loading modules on the frontend.
-gem 'rails-assets-curl', '~> 0.8.10'
-# JS library for pub/sub and message passing on the frontend.
-gem 'rails-assets-msgs', '~> 0.4.0'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

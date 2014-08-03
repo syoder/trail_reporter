@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w( current-location.js )
+Rails.application.config.assets.precompile += %w( map.js home-map.js )

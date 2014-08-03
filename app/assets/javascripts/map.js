@@ -1,8 +1,22 @@
-define(["jquery", "js!//maps.googleapis.com/maps/api/js?v=3.exp&callback=GoogleMapsLoaded&key="+GOOGLE_MAPS_API_KEY+"!order!exports=google"], function ($) {
+(function () {
+  "use strict";
+
   var map;
   var marker;
 
   var exports = {};
+
+  //Places marker & moves if already placed
+  function placeMarker(myLatlng) {
+    if ( marker ) {
+      marker.setPosition(myLatlng);
+    } else {
+      marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map
+      });
+    }
+  }
 
   function initialize() {
     var myLatlng = new google.maps.LatLng(38.8308,-77.3075);
@@ -23,17 +37,5 @@ define(["jquery", "js!//maps.googleapis.com/maps/api/js?v=3.exp&callback=GoogleM
     })
   }
 
-  $(document).on("google-maps:loaded", initialize);
-
-  //Places marker & moves if already placed
-  function placeMarker(myLatlng) {
-    if ( marker ) {
-      marker.setPosition(myLatlng);
-    } else {
-      marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map
-      });
-    }
-  }
-});
+  google.maps.event.addDomListener(window, 'load', initialize);
+}());
