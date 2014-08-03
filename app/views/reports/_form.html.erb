@@ -14,6 +14,10 @@
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
 
+  <%= f.fields_for :pictures do |picture_fields| %>
+      <%= image_tag(picture_fields.object.picture.preview.url, alt: picture_fields.object[:picture]) if picture_fields.object[:picture] %>
+  <% end %>
+  </br></br>
   <div class="control-group">
     <%= f.label :trail %>
     <%= f.collection_select :trail_id, Trail.all, :id, :name, include_blank: "<none>" %>
@@ -25,7 +29,6 @@
   </div>
   <%= f.fields_for :pictures, @report.pictures do |picture_fields| %>
     <div class="control-group">
-      <%= image_tag picture_fields.object.picture.preview.url, alt: picture_fields.object[:picture] %>
       <%= picture_fields.label :picture, "Picture" %>
       <%= picture_fields.file_field :picture %>
     </div>
