@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :reports
+  resources :reports do
+    resources :pictures
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

@@ -2,7 +2,7 @@ class CreatePictures < ActiveRecord::Migration
   def change
     create_table :pictures do |t|
       t.string :picture
-      t.references :user, index: true
+      t.references :report, index: true
 
       t.timestamps
     end

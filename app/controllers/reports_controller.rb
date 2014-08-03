@@ -29,6 +29,9 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
+        if params[:picture]
+          @report.pictures.create(picture: picture)
+        end
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
         format.json { render :show, status: :created, location: @report }
       else
@@ -43,6 +46,9 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
+        if params[:picture]
+            @report.pictures.create(picture: picture)
+        end
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else

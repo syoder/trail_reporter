@@ -1,5 +1,4 @@
 CarrierWave.configure do |config|
-
   if Rails.env.development? || Rails.env.test?
     config.storage = :file
   else
@@ -12,4 +11,6 @@ CarrierWave.configure do |config|
     }
     config.fog_directory = 'bucket_name'
   end
+
+  config.cache_dir = "#{Rails.root}/tmp/uploads"
 end

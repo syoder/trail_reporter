@@ -28,8 +28,8 @@
     <%= f.select :category, options_for_select([["Select One"], "Wildlife", "Maintenance", "Path Obstruction", "Washout", "Other"]) %>
   </div>
   <div class="control-group">
-    <%= f.label :tags_text, "Tags" %>
-    <%= f.text_field :tags_text, "placeholder" => "Add tags", "data-role" => "tagsinput" %>
+    <%= f.label :picture, "Picture" %>
+    <%= f.file_field :picture %>
   </div>
   <div class="control-group">
     <%= f.label :description %>
@@ -38,6 +38,10 @@
   <div class="control-group">
     <%= f.label :reported_at %>
     <%= f.datetime_select :reported_at %>
+  </div>
+  <div class="control-group">
+    <%= f.label :tags_text, "Tags" %>
+    <%= f.text_field :tags_text, "placeholder" => "Add tags", "data-role" => "tagsinput" %>
   </div>
   <div class="control-group">
     <%= f.submit class: "btn btn-primary" %>
