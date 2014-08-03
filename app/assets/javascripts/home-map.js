@@ -4,6 +4,7 @@
   var homeMap;
   var homeMarker;
   var selfMarker;
+  var infoWindow;
 
   CurrentLocation.startTracking();
 
@@ -23,6 +24,8 @@
       showSelf(CurrentLocation.lastCoordinates);
     }
 
+    infoWindow = new google.maps.InfoWindow();
+
     $.getJSON('/reports').then(function(reports){
       $.each(reports, function(index, report){
         showMarker(report);
@@ -34,7 +37,18 @@
   function showMarker(report){
     var homeMarker = new google.maps.Marker({
         position: new google.maps.LatLng(report.latitude, report.longitude),
+        data: report,
         map: homeMap
+      });
+
+      google.maps.event.addListener(homeMarker, 'click', function() {
+        homeMap.setCenter(new google.maps.LatLng(homeMarker.position.lat(), homeMarker.position.lng()));
+
+        var contentString = homeMarker.data.description + "<br /><br />Tags: "+ homeMarker.data.tags_text;
+        // Replace our Info Window's content and position
+        infoWindow.setContent(contentString);
+        infoWindow.setPosition(homeMarker.position);
+        infoWindow.open(homeMap)
       });
   }
 
