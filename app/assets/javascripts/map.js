@@ -18,9 +18,12 @@
     }
   }
 
-  function updateCoordinates(coordinates) {
+  function updateCoordinates(coordinates, panToNewLocation) {
     var latLng = new google.maps.LatLng(coordinates[0], coordinates[1]);
+
     placeMarker(latLng);
+    if (panToNewLocation) { map.panTo(latLng) };
+
     document.getElementById('report_latitude').value = coordinates[0];
     document.getElementById('report_longitude').value = coordinates[1];
   }
@@ -40,7 +43,7 @@
     $(document).on("updated-coordinates", function (event, coordinates) {
       // If they've selected a different location manually, then we should go with that.
       if (selectedManually) { return };
-      updateCoordinates(coordinates);
+      updateCoordinates(coordinates, true);
     });
 
     google.maps.event.addListener(map,'click', function(event) {
