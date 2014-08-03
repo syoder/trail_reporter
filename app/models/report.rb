@@ -15,7 +15,6 @@ class Report < ActiveRecord::Base
     numericality: true
 
 
-
   def tags_text
     tags.pluck(:name).join(",")
   end

@@ -19,14 +19,18 @@
     <%= f.label :longitude %>
     <%= f.text_field :longitude %>
   </div>
+
+  
   <div class="control-group">
     <%= f.label :trail %>
-    <%= f.collection_select :trail, Trail.all, :id, :name, include_blank: "<none>" %>
+    <%= f.collection_select :trail_id, Trail.all, :id, :name, include_blank: "<none>" %>
   </div>
+
   <div class="control-group">
     <%= f.label :category %>
-    <%= f.select :category, options_for_select([["Select One"], "Wildlife", "Maintenance", "Path Obstruction", "Washout", "Other"]) %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "<none>" %>
   </div>
+
   <div class="control-group">
     <%= f.label :tags_text, "Tags" %>
     <%= f.text_field :tags_text, "placeholder" => "Add tags", "data-role" => "tagsinput" %>
