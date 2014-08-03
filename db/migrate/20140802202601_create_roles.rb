@@ -5,6 +5,6 @@ class CreateRoles < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_reference :users, :role
+    add_reference :users, :role, index: true
   end
 end

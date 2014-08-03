@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 
-['admin'].each do |role_name|
+%w(admin reporter).each do |role_name|
   Role.where(name: role_name).first_or_create
 end
 
