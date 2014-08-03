@@ -55,4 +55,12 @@ group :development, :test do
   gem "pry-rails"
 end
 
+group :production do
+  gem 'fog', require: "fog/aws/storage"
+end
+
 gem "twitter-bootstrap-rails"
+
+# Used for attaching pictures to reports
+gem 'carrierwave'
+gem 'mini_magick'
