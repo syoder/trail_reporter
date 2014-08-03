@@ -11,16 +11,9 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-    <%= f.label :latitude %>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="control-group">
-    <%= f.label :longitude %>
-    <%= f.text_field :longitude %>
-  </div>
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
 
-  
   <div class="control-group">
     <%= f.label :trail %>
     <%= f.collection_select :trail_id, Trail.all, :id, :name, include_blank: "<none>" %>
@@ -39,10 +32,10 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
-  <div class="control-group">
-    <%= f.label :reported_at %>
-    <%= f.datetime_select :reported_at %>
-  </div>
+  <%# <div class="control-group"> %>
+  <%#   <%= f.label :reported_at %1> %>
+  <%#   <%= f.datetime_select :reported_at %1> %>
+  <%# </div> %>
   <div class="control-group">
     <%= f.submit class: "btn btn-primary" %>
   </div>

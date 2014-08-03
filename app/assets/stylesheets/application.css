@@ -17,18 +17,34 @@
 
 body {
   padding-top: 60px;
+  font-family: 'HelveticaNeue', 'Helvetica Neue', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: 300; color: #666;
 }
 
-#map-canvas {
-  height: 400px;
-  width: 40%;
+.container {
+  max-width: 960px;
 }
 
-#map-home-canvas {
+.map-canvas {
   height: 400px;
-  width: 40%;
 }
 
 .map-canvas img {
   max-width: none;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 0px 10px;
+  }
+  .navbar {
+    margin-bottom: 0px;
+  }
+  h1 {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  .map-canvas {
+    height: 250px;
+  }
 }
