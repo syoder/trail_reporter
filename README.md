@@ -24,3 +24,19 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# Quick Start
+
+    # Run bundle to pull in dependencies
+    > bundle
+
+
+    # Prepare your configuration files
+    > bundle exec rake config:prepare
+
+
+    # ROCK'N'ROLL!!!
+    > RAILS_ENV=development bundle exec rails s
+
+
