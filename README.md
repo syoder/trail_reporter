@@ -36,6 +36,14 @@ Things you may want to cover:
     > bundle exec rake config:prepare
 
 
+    # Create the database
+    > RAILS_ENV=development bundle exec rake db:create
+
+
+    # Initialize the database with some seed data:
+    > RAILS_ENV=development bundle exec rake db:seed
+
+
     # ROCK'N'ROLL!!!
     > RAILS_ENV=development bundle exec rails s
 
