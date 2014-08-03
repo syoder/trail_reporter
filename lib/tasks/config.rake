@@ -3,9 +3,7 @@ namespace :config do
   task :prepare do
     require 'fileutils'
 
-    # TODO: I'm sure that rails provides helper methods for these values
-    #       somewhere, but I don't remember what they are.
-    root_path = File.absolute_path(File.join(__FILE__, "..", "..", ".."))
+    root_path   = Rails.root
     config_path = File.join(root_path, "config")
 
     example_files = Dir[File.join(config_path, "*.example")]
