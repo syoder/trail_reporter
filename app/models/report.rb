@@ -24,4 +24,9 @@ class Report < ActiveRecord::Base
       Tag.where(name: tag_name.strip.downcase).first_or_create.id
     end
   end
+
+
+  def category_name
+    (category) ? category.name : nil
+  end
 end
