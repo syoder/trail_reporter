@@ -35,7 +35,7 @@ body {
 
 @media (max-width: 767px) {
   body {
-    padding: 0px 10px;
+    padding-top: 0;
   }
   .navbar {
     margin-bottom: 0px;
