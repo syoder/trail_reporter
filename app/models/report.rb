@@ -16,6 +16,11 @@ class Report < ActiveRecord::Base
     presence:     true,
     numericality: true
 
+  after_initialize :set_default_reported_at
+
+  def set_default_reported_at
+    self.reported_at ||= DateTime.now
+  end
 
   def tags_text
     tags.pluck(:name).join(",")

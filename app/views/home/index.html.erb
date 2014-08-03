@@ -5,6 +5,8 @@
   locating...
 </p>
 
+<%= link_to "New Report", new_report_path, class: "btn" %>
+
 <% content_for :javascript do %>
   <script>
     $(document).on("updated-coordinates", function (event, coords) {
