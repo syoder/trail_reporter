@@ -4,7 +4,7 @@
   var map;
   var marker;
 
-  var exports = {};
+  CurrentLocation.startTracking();
 
   //Places marker & moves if already placed
   function placeMarker(myLatlng) {
@@ -18,7 +18,18 @@
     }
   }
 
+  function updateCoordinates(coordinates, panToNewLocation) {
+    var latLng = new google.maps.LatLng(coordinates[0], coordinates[1]);
+
+    placeMarker(latLng);
+    if (panToNewLocation) { map.panTo(latLng) };
+
+    document.getElementById('report_latitude').value = coordinates[0];
+    document.getElementById('report_longitude').value = coordinates[1];
+  }
+
   function initialize() {
+    var selectedManually = false;
     var myLatlng = new google.maps.LatLng(38.8308,-77.3075);
     var mapOptions = {
       center: myLatlng,
@@ -28,12 +39,16 @@
     map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
 
+    // We should keep the selected coordinates in sync with the user's location.
+    $(document).on("updated-coordinates", function (event, coordinates) {
+      // If they've selected a different location manually, then we should go with that.
+      if (selectedManually) { return };
+      updateCoordinates(coordinates, true);
+    });
+
     google.maps.event.addListener(map,'click', function(event) {
-      myLatlng = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
-      console.log(myLatlng);
-      placeMarker(myLatlng);
-      document.getElementById('report_latitude').value = myLatlng.k;
-      document.getElementById('report_longitude').value = myLatlng.B;
+      selectedManually = true;
+      updateCoordinates([event.latLng.lat(), event.latLng.lng()]);
     })
   }
 
