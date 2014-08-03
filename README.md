@@ -28,3 +28,27 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# Quick Start
+
+    # Run bundle to pull in dependencies
+    > bundle
+
+
+    # Prepare your configuration files
+    > bundle exec rake config:prepare
+
+
+    # Create the database
+    > RAILS_ENV=development bundle exec rake db:create
+
+
+    # Initialize the database with some seed data:
+    > RAILS_ENV=development bundle exec rake db:seed
+
+
+    # ROCK'N'ROLL!!!
+    > RAILS_ENV=development bundle exec rails s
+
+
