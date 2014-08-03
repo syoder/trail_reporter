@@ -16,6 +16,7 @@ class ReportsController < ApplicationController
   # GET /reports/new
   def new
     @report = current_user.reports.new
+    @report.pictures.build
   end
 
   # GET /reports/1/edit
@@ -29,9 +30,9 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        if params[:picture]
-          @report.pictures.create(picture: picture)
-        end
+        # if params[:pictures]
+        #   @report.pictures.create(picture: params[:pictures])
+        # end
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
         format.json { render :show, status: :created, location: @report }
       else
@@ -46,9 +47,9 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        if params[:picture]
-            @report.pictures.create(picture: picture)
-        end
+        # if params[:picture]
+        #     @report.pictures.create(picture: picture)
+        # end
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
@@ -80,7 +81,8 @@ class ReportsController < ApplicationController
         :latitude, :longitude, :description, :tags_text, :reported_at,
 
         # TODO: We might want to perform additional auth checks on these...
-        :trail_id, :category_id
+        :trail_id, :category_id,
+        :pictures_attributes => [:picture]
       )
     end
 
