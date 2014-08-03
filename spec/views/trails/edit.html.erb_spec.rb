@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "trails/edit", :type => :view do
   before(:each) do
-    @trail = assign(:trail, Trail.create!())
+    @trail = assign(:trail, Trail.create!(name: "Somewhere"))
   end
 
   it "renders the edit trail form" do

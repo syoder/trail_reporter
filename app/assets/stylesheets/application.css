@@ -28,3 +28,7 @@ body {
   height: 400px;
   width: 40%;
 }
+
+.map-canvas img {
+  max-width: none;
+}

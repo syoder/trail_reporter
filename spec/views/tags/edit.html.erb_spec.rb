@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "tags/edit", :type => :view do
   before(:each) do
-    @tag = assign(:tag, Tag.create!())
+    @tag = assign(:tag, Tag.create!(name: "Something"))
   end
 
   it "renders the edit tag form" do

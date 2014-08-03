@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "trails/index", :type => :view do
   before(:each) do
     assign(:trails, [
-      Trail.create!(),
-      Trail.create!()
+      Trail.create!(name: "Somewhere"),
+      Trail.create!(name: "Somewhere else")
     ])
   end
 
