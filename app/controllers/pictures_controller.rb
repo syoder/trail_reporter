@@ -1,6 +1,7 @@
+=begin
 class PicturesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
-    before_action :set_picture
+    before_action :set_picture, only: [:show, :edit, :update, :destroy]
     before_action :set_report
 
     # GET /report/#/pictures
@@ -70,3 +71,4 @@ class PicturesController < ApplicationController
     end
 
 end
+=end
