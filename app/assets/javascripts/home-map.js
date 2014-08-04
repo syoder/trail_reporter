@@ -44,7 +44,7 @@
       google.maps.event.addListener(homeMarker, 'click', function() {
         homeMap.setCenter(new google.maps.LatLng(homeMarker.position.lat(), homeMarker.position.lng()));
 
-        var contentString = homeMarker.data.description + "<br /><br />Tags: "+ homeMarker.data.tags_text;
+        var contentString = homeMarker.data.description + "<br /><br /><b>Tags:</b> "+ homeMarker.data.tags_text;
         // Replace our Info Window's content and position
         infoWindow.setContent(contentString);
         infoWindow.setPosition(homeMarker.position);
@@ -55,16 +55,23 @@
   function showSelf(coordinates) {
     var latLng = new google.maps.LatLng(coordinates[0], coordinates[1]);
     if (!selfMarker) {
+      var image = {
+        url: '/locate.png',
+        size: new google.maps.Size(512,512),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(13,13),
+        scaledSize: new google.maps.Size(26,26)
+      };
+
+      homeMap.panTo(latLng);
       selfMarker = new google.maps.Marker({
         position: latLng,
         map: homeMap,
         title: "Current Location",
-        icon: '/kangaroo.png'
+        icon: image
       });
     } else {
       selfMarker.setPosition(latLng);
     }
-
-    homeMap.panTo(latLng);
   }
 }());

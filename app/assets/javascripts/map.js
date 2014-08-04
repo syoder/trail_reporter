@@ -11,9 +11,17 @@
     if ( marker ) {
       marker.setPosition(myLatlng);
     } else {
+      var image = {
+        url: '/locate.png',
+        size: new google.maps.Size(512,512),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(13,13),
+        scaledSize: new google.maps.Size(26,26)
+      };
       marker = new google.maps.Marker({
         position: myLatlng,
-        map: map
+        map: map,
+        icon: image
       });
     }
   }
