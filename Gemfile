@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
+ruby '2.2.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.9'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -50,4 +51,4 @@ group :development, :test do
   gem "pry-rails"
 end
 
-gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails", '~> 2.2'
