@@ -1,5 +1,5 @@
 language: ruby
 rvm:
-  - 2.1.1
+  - 2.2.0
 before_script:
   - psql -c 'create database trail_reporter_test;' -U postgres
