@@ -1,6 +1,5 @@
-class Api::V1::ReportsController < ApplicationController
-  skip_before_filter :verify_authenticity_token
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+class Api::V1::ReportsController < Api::V1::BaseController
+  skip_before_action :authenticate_via_token!, only: [:index]
 
   # CURL example:
   #   curl "localhost:3000/api/v1/reports?radius_miles=5&lat38.835161=&lng=-77.311821"
@@ -14,12 +13,8 @@ class Api::V1::ReportsController < ApplicationController
      curl -i \
        -H "Content-Type: application/json" \
        -X POST -d '{"reports": [{"latitude":38.835161,"longitude":-77.311821,"description":"created via curl"}]}' \
-       "localhost:3000/api/v1/reports"
+       "localhost:3000/api/v1/reports?token=xxxx"
 =end
-
-  def current_user
-    User.first
-  end
 
   def create
     @reports = reports_params.map {|p| current_user.reports.build(p)}
