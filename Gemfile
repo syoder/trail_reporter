@@ -28,6 +28,8 @@ gem "devise"
 # we need this in order to serve assets properly on heroku
 gem 'rails_12factor', group: :production
 
+gem 'geokit-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

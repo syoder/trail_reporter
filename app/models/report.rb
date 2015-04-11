@@ -5,6 +5,10 @@ class Report < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  acts_as_mappable :default_units => :miles,
+                   :distance_field_name => :distance,
+                   :lat_column_name => :latitude,
+                   :lng_column_name => :longitude
 
   validates :latitude,
     presence:     true,
